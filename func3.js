@@ -6,16 +6,12 @@ const aFunc = function (){
 
 // setTimeout(console.log, 5000);
 
-let c;
-
-function add(a, b) {
+function add(a, b, callback) {
     setTimeout(function(){
-        c = a + b;
+        callback(a + b);
     }, 3000);
 }
 
-add(4, 5);
-
-setTimeout(function(){
-    console.log(c);
-}, 4000);
+add(4, 5, function(total){
+    console.log(total);
+});
