@@ -8,10 +8,15 @@ const aFunc = function (){
 
 function add(a, b, callback) {
     setTimeout(function(){
-        callback(a + b);
+        if(typeof a != 'number' || typeof b != 'number') {
+            callback('Tham so phai co kieu number');
+        } else {
+            callback(undefined, a + b);
+        }
     }, 3000);
 }
 
-add(4, 5, function(total){
-    console.log(total);
+add(4, '5', function(err, total){
+    if(err) return console.log(err);
+    console.log('Ket qua:', total);
 });
